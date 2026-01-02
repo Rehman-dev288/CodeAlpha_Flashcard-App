@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashLearn | Master Anything</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="toast-container"></div>
+
+    <header>
+        <div class="logo-area">
+            <div class="logo-box"><i class="fas fa-layer-group"></i></div>
+            <div class="brand">
+                <h1>FlashLearn</h1>
+                <p>Master any subject with smart flashcards</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button id="theme-toggle" class="icon-btn rounded-square" title="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="header-add-btn" class="add-btn">
+                <i class="fas fa-plus"></i> Add Card
+            </button>
+        </div>
+    </header>
+
+    <main class="content">
+        <div id="empty-state" class="empty-container hidden">
+             <div class="logo-box big-logo"><i class="fas fa-layer-group"></i></div>
+             <h2>No Flashcards Yet</h2>
+             <p>Start building your knowledge base by creating your first flashcard.</p>
+             <button id="center-add-btn" class="add-btn big-btn">
+                 <i class="fas fa-plus"></i> Create Your First Card
+             </button>
+        </div>
+
+        <div id="main-flashcard-content">
+            <div class="progress-container">
+                <div class="progress-header">
+                    <span id="card-count">Card 1 of 3</span>
+                    <button id="reset-deck">
+                        <i class="fas fa-undo"></i> Reset
+                    </button>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="flashcard-wrapper">
+                <div class="card" id="card">
+                    <div class="card-face card-front">
+                        <div class="card-header">
+                            <span class="card-tag">Question</span>
+                            <div class="card-tools">
+                                <button onclick="editCurrentCard()" title="Edit" class="tool-icon blue-tool"><i class="far fa-edit"></i></button>
+                                <button onclick="confirmDelete()" title="Delete" class="tool-icon red-tool"><i class="far fa-trash-alt"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h2 id="display-question">Loading...</h2>
+                        </div>
+                        <button class="reveal-btn" id="show-answer">
+                            Show Answer <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+
+                    <div class="card-face card-back">
+                        <div class="card-header">
+                            <span class="card-tag answer-tag">Answer</span>
+                        </div>
+                        <div class="card-body">
+                            <h2 id="display-answer">...</h2>
+                        </div>
+                        <button class="reveal-btn back-btn" id="show-question">
+                            <i class="fas fa-reply"></i> Back to Question
+                        </button>
+                    </div>
+                </div>
+
+                <div class="navigation-panel">
+                    <button id="prev-btn" class="nav-btn"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button id="next-btn" class="nav-btn">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header-styled">
+                <div class="modal-title-box">
+                    <i id="modal-icon" class="fas fa-plus"></i>
+                    <div>
+                        <h3 id="modal-title">Create New Flashcard</h3>
+                        <p id="modal-subtitle">Add a new question and answer to your study deck.</p>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="close-x"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="input-group">
+                <label>Question</label>
+                <input type="text" id="input-question" placeholder="Enter your question...">
+            </div>
+            
+            <div class="input-group">
+                <label>Answer</label>
+                <textarea id="input-answer" placeholder="Enter the answer..."></textarea>
+            </div>
+
+            <div class="modal-buttons">
+                <button onclick="closeModal()" class="cancel-btn">Cancel</button>
+                <button id="save-card-btn" class="save-btn" disabled>
+                     <span>Save Card</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="delete-modal" class="modal">
+        <div class="modal-content delete-content">
+            <div class="delete-icon-area">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3>Delete Card?</h3>
+            <p>Are you sure you want to delete this card? This action cannot be undone.</p>
+            <div class="modal-buttons">
+                <button onclick="closeDeleteModal()" class="cancel-btn">Cancel</button>
+                <button id="confirm-delete-btn" class="delete-confirm-btn">Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
