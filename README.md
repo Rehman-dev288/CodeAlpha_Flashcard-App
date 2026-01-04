@@ -1,4 +1,4 @@
-# 📚 CodeAlpha Flashcard App
+# 📚 FlashLearn App
 
 An interactive and modern Flashcard Application built for smart learning. This app allows users to create, edit, and manage study decks with a seamless user experience.
 
@@ -22,5 +22,4 @@ An interactive and modern Flashcard Application built for smart learning. This a
 3. Click "Create Your First Card" to start adding questions.
 4. Use the "Next" and "Previous" buttons to navigate.
 
----
 Developed with ❤️ for CodeAlpha Internship.
