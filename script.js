@@ -106,8 +106,8 @@ function openAddModal() {
     // Update Modal UI for Adding
     modalTitle.textContent = "Create New Flashcard";
     modalSubtitle.textContent = "Add a new question and answer to your study deck.";
-    modalIcon.className = "fas fa-plus"; // Plus icon
-    saveBtn.innerHTML = `<span>Save Card</span>`;
+    modalIcon.className = "fas fa-plus"; 
+    saveBtn.innerHTML = `<i class="fas fa-plus"></i><span>Save Card</span>`;
 
     inputQuestion.value = "";
     inputAnswer.value = "";
@@ -121,7 +121,7 @@ function editCurrentCard() {
     // Update Modal UI for Editing
     modalTitle.textContent = "Edit Flashcard";
     modalSubtitle.textContent = "Update the question and answer for this flashcard.";
-    modalIcon.className = "far fa_edit"; // Pencil icon
+    modalIcon.className = "far fa-edit"; 
     saveBtn.innerHTML = `<i class="far fa-edit"></i> <span>Save Changes</span>`;
 
     inputQuestion.value = cards[currentCardIndex].question;
